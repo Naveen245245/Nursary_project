@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Delete</h2>
+
+<form action="" method="POST">
+ <p>Confirm to Del the :  <h3>{{nursary.name}}</h3></p> 
+  {% csrf_token %}
+  <input type="submit" value="Confirm Delete" />
+</form>
+<a href="{% url 'nursary-list' %}"><button>Cancel n go to back</button></a>
+{% endblock content %}

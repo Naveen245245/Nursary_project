@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Update the order taken by :</h2>
+<form action="" method="POST">
+  {{order.farmer}} {{orderform.as_p}} {% csrf_token %}
+  <input type="submit" value="Update Order" />
+</form>
+{% endblock content %}

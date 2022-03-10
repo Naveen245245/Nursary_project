@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Update page</h1>
+
+<form action="" method="POST">
+  {{nursary.as_p}} {% csrf_token %}
+  <input type="submit" value="Update" />
+</form>
+{% endblock content %}

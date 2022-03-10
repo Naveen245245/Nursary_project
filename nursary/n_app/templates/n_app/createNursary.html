@@ -1,0 +1,17 @@
+{% comment %} {% extends 'n_app/index.html' %} {% endcomment %}
+
+<form action="createNursary" method="POST">
+  <table>
+    <thead>
+      <tr>
+        <td>Form Label</td>
+        <td>Form Input</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{ nursaryForm.as_table }}
+    </tbody>
+  </table>
+  {% csrf_token %}
+  <input type="submit" value="Create n Submit" />
+</form>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %} NursaryList {% endblock title %} 
+{% block content %}
+<h2>Nursarylist</h2>
+
+<a href="{% url 'create-nursary' %}"
+  ><input type="submit" value="Add nursary"
+/></a>
+
+<div class="col-sm-6" style="background-color: lavender">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">loaction</th>
+        <th scope="col">Owner Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for nursary in nursaries %}
+      <tr>
+        <td>{{nursary.name}}</td>
+        <td>{{nursary.location}}</td>
+        <td>{{nursary.owner}}</td>
+        <td>
+          <a href="{% url 'view-nursary' nursary.id %}">view Nursary</a>
+        </td>
+        <td><a href="{% url 'update-nursary' nursary.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-nursary' nursary.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

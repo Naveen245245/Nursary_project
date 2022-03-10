@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<a href="../"><button>Back</button></b></a>
+<h1>Create order</h1>
+<form action="" method="POST">
+  {{orderform.as_p}} {% csrf_token %}
+  <input type="submit" value="Add order" />
+</form>
+<br>
+{% endblock content %}

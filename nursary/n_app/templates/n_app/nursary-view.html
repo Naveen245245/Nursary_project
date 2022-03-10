@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<a href="/nursaries"><button>Go back</button></a>
+<h2>Nursary - view</h2>
+Name:{{nursary.name}}
+<br />
+owner:{{nursary.owner}}
+{% comment %} <img src="/media/nursary_photo/{{nursary.nursary_photo}}" alt="nursary image" />
+<img src="{% url static %}" alt="nursary image" /> {% endcomment %}
+<hr />
+<a href="{% url 'create-order' nursary.id %}"><button>Add New Purchase Order</button></a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6" style="background-color: lavender">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>S.no</th>
+            <th>Product</th>
+            <th>Farmer(Buyer)</th>
+            <th>Nursary(Shop)</th>
+            <th>Price</th>
+            <th colspan="2">Action</th>
+          </tr>
+        </thead>
+        {% for order in orders %}
+
+        <tr>
+          <td>{{order.id}}</td>
+          <td>{{order.product}}</td>
+          <td>{{order.farmer_c}}</td>
+          <td>{{order.nursary_p}}</td>
+          <td>{{order.amount}}</td>
+          <td>
+            <a href="{% url 'update-order' order.id %}"
+              ><button>Edit</button></a
+            >
+          </td>
+          <td>
+            <a href="{% url 'delete-order' order.id %}"
+              ><button>Delete</button></a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div class="col-sm-6" style="background-color: lavender">
+    {% for row in bed_list %}
+    <div id="bedo">
+      {% for col in row %}
+        <div id="bed">
+          <a href="{% url 'view-bed' col.id %}">{{col.id}}</a>
+        </div>
+      {% endfor %}
+    </div>
+    {% endfor %} 
+  </div>
+</div>
+{% endblock content %}
